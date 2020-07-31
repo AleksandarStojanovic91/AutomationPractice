@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -26,27 +27,49 @@ public class AS {
 
     @Test
     public void registerToAutomationPractice() throws InterruptedException {
+
         driver.findElement(By.cssSelector(".login")).click();
+
         driver.findElement(By.cssSelector("#email")).clear();
         driver.findElement(By.cssSelector("#email_create")).sendKeys(email);
+
         driver.findElement(By.cssSelector("#SubmitCreate")).click();
+
         Thread.sleep(5000);
+
         driver.findElement(By.cssSelector("#id_gender1")).click();
+
+        driver.findElement(By.cssSelector("#customer_firstname")).clear();
         driver.findElement(By.cssSelector("#customer_firstname")).sendKeys("Ime");
+
+        driver.findElement(By.cssSelector("#customer_lastname")).clear();
         driver.findElement(By.cssSelector("#customer_lastname")).sendKeys("Prezime");
+
         driver.findElement(By.cssSelector("#email")).clear();
         driver.findElement(By.cssSelector("#email")).sendKeys(email);
+
+        driver.findElement(By.cssSelector("#passwd")).clear();
         driver.findElement(By.cssSelector("#passwd")).sendKeys("qqqqw");
+
+        Select daySelect = new Select(driver.findElement(By.cssSelector("#days")));
+        daySelect.selectByValue("10");
+
+        Select monthSelect = new Select(driver.findElement(By.cssSelector("#months")));
+        monthSelect.selectByValue("8");
+
+        Select yearSelect = new Select(driver.findElement(By.cssSelector("#years")));
+        yearSelect.selectByValue("2007");
+
         Thread.sleep(5000);
         System.out.println(email);
+
     }
+
+
 
     @After
     public void tearDown(){
         driver.close();
         driver.quit();
-
-        //kmentarafgfdhgfhsrdtf
-
     }
 }
