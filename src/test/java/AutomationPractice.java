@@ -42,8 +42,8 @@ public class AutomationPractice {
 
     @After
     public void tearDown(){
-        driver.close();
+        driver.close()1;
+        we
         driver.quit();
     }
 }
-//this is a change
