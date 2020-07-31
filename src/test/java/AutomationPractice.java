@@ -42,8 +42,11 @@ public class AutomationPractice {
 
     @After
     public void tearDown(){
-        driver.close()1;
-        we
+        driver.close();
         driver.quit();
+
+
+
+        //example
     }
 }
