@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 public class MilenaJanjic {
 
-    public class AutomationPractice {
+    public static class AutomationPractice {
 
 
         public static WebDriver driver;
