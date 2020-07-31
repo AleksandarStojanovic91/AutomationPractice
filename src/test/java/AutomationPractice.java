@@ -20,13 +20,14 @@ public class AutomationPractice {
         System.setProperty("webdriver.chrome.driver","src/main/resources/chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.get(URL);
     }
 
     @Test
     public void registerToAutomationPractice() throws InterruptedException {
         driver.findElement(By.cssSelector(".login")).click();
+        driver.findElement(By.cssSelector("#email")).clear();
         driver.findElement(By.cssSelector("#email_create")).sendKeys(email);
         driver.findElement(By.cssSelector("#SubmitCreate")).click();
         Thread.sleep(5000);
@@ -45,8 +46,7 @@ public class AutomationPractice {
         driver.close();
         driver.quit();
 
+        //kmentarafgfdhgfhsrdtf
 
-
-        //example
     }
 }
