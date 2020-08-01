@@ -18,7 +18,7 @@ public class AutomationPractice {
 
     @Before
     public void setUp(){
-        System.setProperty("webdriver.chrome.driver","src/main/resources/chromedriver");
+        System.setProperty("webdriver.chrome.driver","src/main/resources/chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -64,13 +64,20 @@ public class AutomationPractice {
         System.out.println(email);
 
     }
+    @Test
+    public void enterEmailAndClickRegister(){
+
+        driver.findElement(By.cssSelector(".login")).click();
+
+        driver.findElement(By.cssSelector("#email")).clear();
+        driver.findElement(By.cssSelector("#email_create")).sendKeys("email@email.com");
+
+        driver.findElement(By.cssSelector("#SubmitCreate")).click();
+    }
 
     @After
     public void tearDown(){
         driver.close();
         driver.quit();
-
-        //kmentarafgfdhgfhsrdtf
-
     }
 }
