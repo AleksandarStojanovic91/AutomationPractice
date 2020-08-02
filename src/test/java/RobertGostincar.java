@@ -113,12 +113,19 @@ public class RobertGostincar {
 
         Thread.sleep(3000);
         Thread.sleep(3000);
+
+
+
+
+
         //komentar
 
     }
 
     @After
     public void exit() {
+
+        //qwe
         driver.close();
         driver.quit();
     }
