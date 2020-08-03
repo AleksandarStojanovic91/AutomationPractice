@@ -8,6 +8,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class BorisKovacevic {
 
@@ -32,29 +35,29 @@ public class BorisKovacevic {
             String mail = "wowo" + rand + "@gmail.com";
             return mail;
         }
-        /*public <p> Object dataInput (String p){
-            Random r = new Random();
+        public <p> String dataInput (String p){
             String[] names = {"John", "Bob", "Mark", "George", "Mike", "Sam"};
             String[] lastnames = {"Smith", "Jackson", "Myers", "Watson", "Carter"};
+            Random r = new Random();
             int name = r.nextInt(names.length);
             int lastname = r.nextInt(names.length);
             int pass = name + lastname;
             if (p == "name"){
-                return name;
+                return names[name];
             }
             if (p == "lastname"){
-                return lastname;
+                return lastnames[lastname];
             }
             if (p == "pass") {
-                return pass;
+                return names[name] + lastnames[lastname];
             }
             else{
                 return null;
             }
-        }*/
+        }
 
-        
-        @Before
+
+    @Before
         public void setUp(){
             System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
             driver = new ChromeDriver();
@@ -93,11 +96,11 @@ public class BorisKovacevic {
 
             driver.findElement(By.cssSelector("#id_gender1")).click();
             driver.findElement(By.cssSelector("#customer_firstname")).clear();
-            driver.findElement(By.cssSelector("#customer_firstname")).sendKeys("John");
+            driver.findElement(By.cssSelector("#customer_firstname")).sendKeys(dataInput("name"));
             Thread.sleep(1000);
-            driver.findElement(By.cssSelector("#customer_lastname")).sendKeys("Doe");
+            driver.findElement(By.cssSelector("#customer_lastname")).sendKeys(dataInput("lastname"));
             Thread.sleep(1000);
-            driver.findElement(By.cssSelector("#passwd")).sendKeys("passwd");
+            driver.findElement(By.cssSelector("#passwd")).sendKeys(dataInput("pass"));
             Thread.sleep(1000);
             Select dayselect = new Select(driver.findElement(By.cssSelector("#days")));
             dayselect.selectByIndex(6);
@@ -119,6 +122,7 @@ public class BorisKovacevic {
             driver.findElement(By.cssSelector("#city")).sendKeys("London");
             Thread.sleep(1000);
 
+            //Fields validation
             assertionField("#customer_firstname");
             assertionField("#customer_lastname");
             assertionField("#passwd");
