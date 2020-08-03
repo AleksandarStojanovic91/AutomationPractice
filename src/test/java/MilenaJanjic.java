@@ -53,7 +53,9 @@ public class MilenaJanjic {
             driver.findElement(By.id("firstname")).sendKeys("Milena");
             driver.findElement(By.id("lastname")).sendKeys("Janjic");
             driver.findElement(By.id("company")).sendKeys("MojaFirma");
+            Thread.sleep(2000);
             driver.findElement(By.id("address1")).sendKeys("Batutova");
+            Thread.sleep(2000);
             driver.findElement(By.id("city")).sendKeys("Belgrade");
 
             Select stateSelect = new Select(driver.findElement(By.id("id_state")));
