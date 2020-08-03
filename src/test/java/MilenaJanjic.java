@@ -70,7 +70,7 @@ public class MilenaJanjic {
 
             driver.findElement(By.id("phone_mobile")).sendKeys("061234567");
             driver.findElement(By.id("alias")).sendKeys("MojaAdresa");
-            driver.findElement(By.id("submitlogin")).click();
+            driver.findElement(By.id("submitAccount")).click();
 
 
 
