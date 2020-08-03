@@ -63,8 +63,10 @@ public class MilenaJanjic {
 
             driver.findElement(By.id("postcode")).sendKeys("10000");
 
-            Select countrySelect = new Select((driver.findElement(By.id("id_country"))));
-            countrySelect.selectByValue("1");
+            //Select countrySelect = new Select((driver.findElement(By.id("id_country"))));
+            //countrySelect.selectByValue("1");
+
+            Thread.sleep(2000);
 
             driver.findElement(By.id("phone_mobile")).sendKeys("061234567");
             driver.findElement(By.id("alias")).sendKeys("MojaAdresa");
@@ -72,7 +74,6 @@ public class MilenaJanjic {
 
 
 
-            System.out.println("asd123dsf@gmail.com");
         }
 
         @After
