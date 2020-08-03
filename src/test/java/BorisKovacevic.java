@@ -8,8 +8,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class BorisKovacevic {
@@ -19,11 +17,11 @@ public class BorisKovacevic {
 
 
     //Helper methods
-        public <ExpectedURL> void assertionPage(String ExpectedURL) {
+        public void assertionPage(String ExpectedURL) {
             String ActualURL = driver.getCurrentUrl();
             Assert.assertEquals(ExpectedURL, ActualURL);
         }
-        public <element, x> boolean assertionField(String element) {
+        public boolean assertionField(String element) {
             String expectedColorCodeInRGB = "rgba(53, 179, 63, 1)";
             String actual = driver.findElement(new By.ByCssSelector(element)).getCssValue("color");
             Assert.assertEquals(expectedColorCodeInRGB, actual);
@@ -32,23 +30,21 @@ public class BorisKovacevic {
         public String mailGenerator() {
             Random r = new Random();
             int rand = r.nextInt(5001);
-            String mail = "wowo" + rand + "@gmail.com";
-            return mail;
+            return "wowo" + rand + "@gmail.com";
         }
-        public <p> String dataInput (String p){
+        public String dataInput (String p){
             String[] names = {"John", "Bob", "Mark", "George", "Mike", "Sam"};
             String[] lastnames = {"Smith", "Jackson", "Myers", "Watson", "Carter"};
             Random r = new Random();
             int name = r.nextInt(names.length);
             int lastname = r.nextInt(names.length);
-            int pass = name + lastname;
-            if (p == "name"){
+            if (p.equals("name")){
                 return names[name];
             }
-            if (p == "lastname"){
+            if (p.equals("lastname")){
                 return lastnames[lastname];
             }
-            if (p == "pass") {
+            if (p.equals("pass")) {
                 return names[name] + lastnames[lastname];
             }
             else{
