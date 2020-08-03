@@ -42,14 +42,33 @@ public class MilenaJanjic {
             driver.findElement(By.cssSelector("#passwd")).sendKeys("qqqqw");
             Thread.sleep(5000);
 
-            Select daySelect = new Select(driver.findElement(By.cssSelector("days")));
+            Select daySelect = new Select(driver.findElement(By.cssSelector("#days")));
             daySelect.selectByValue("7");
 
-            Select monthSelect = new Select(driver.findElement(By.cssSelector("month")));
+            Select monthSelect = new Select(driver.findElement(By.cssSelector("#months")));
             monthSelect.selectByValue("9");
 
-            Select yearSelect = new Select(driver.findElement(By.cssSelector("year")));
+            Select yearSelect = new Select(driver.findElement(By.cssSelector("#years")));
             yearSelect.selectByValue("1992");
+            driver.findElement(By.id("firstname")).sendKeys("Milena");
+            driver.findElement(By.id("lastname")).sendKeys("Janjic");
+            driver.findElement(By.id("company")).sendKeys("MojaFirma");
+            driver.findElement(By.id("address2")).sendKeys("Batutova");
+            driver.findElement(By.id("city")).sendKeys("Belgrade");
+
+            Select stateSelect = new Select(driver.findElement(By.id("id_state")));
+            stateSelect.selectByValue("2");
+
+            driver.findElement(By.id("postcode")).sendKeys("10000");
+
+            Select countrySelect = new Select((driver.findElement(By.id("id_country"))));
+            countrySelect.selectByValue("1");
+
+            driver.findElement(By.id("phone_mobile")).sendKeys("061234567");
+            driver.findElement(By.id("alias")).sendKeys("MojaAdresa");
+            driver.findElement(By.id("submitlogin")).click();
+
+
 
             System.out.println("asd123dsf@gmail.com");
         }
